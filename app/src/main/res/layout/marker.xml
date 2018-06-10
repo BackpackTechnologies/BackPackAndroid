@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <ViewFlipper
+        android:id="@+id/Images"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/green">
+    </ViewFlipper>
+
+    <ImageButton
+        android:id="@+id/addimages"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignBottom="@+id/Images"
+        android:layout_alignEnd="@+id/Images"
+        android:layout_alignRight="@+id/Images"
+        android:background="@null"
+        android:src="@drawable/addimage" />
+
+
+    <LinearLayout
+        android:id="@+id/info"
+        android:layout_below="@+id/Images"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:id="@+id/input_name" />
+
+    <EditText
+        android:id="@+id/input_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Desciption"
+        android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:paddingTop="30dp"
+        android:layout_below="@+id/info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <ImageButton
+            android:id="@+id/TypeWater"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/typewater" />
+
+        <ImageButton
+            android:id="@+id/TypePDV"
+            android:paddingLeft="15dp"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/typepdv" />
+
+        <ImageButton
+            android:id="@+id/TypeCamp"
+            android:paddingLeft="15dp"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/typecamp" />
+
+        <ImageButton
+            android:id="@+id/TypeGite"
+            android:paddingLeft="15dp"
+            android:background="@null"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/typegite" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
