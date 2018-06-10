@@ -1,0 +1,46 @@
+language: android
+sudo: false
+env:
+  global:
+  - ANDROID_API=22
+  - EMULATOR_API=21
+  - ANDROID_BUILD_TOOLS=24.0.2
+
+android:
+  components:
+  - build-tools-26.0.2
+  - android-26
+  - android-22
+  - extra-google-google_play_services
+  - extra-google-m2repository
+  - extra-android-m2repository
+  - addon-google_apis-google-26
+  - sys-img-armeabi-v7a-android-22
+  - sys-img-armeabi-v7a-android-17
+
+before_script:
+- echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
+- emulator -avd test -no-skin -no-audio -no-window &
+- android-wait-for-emulator
+- adb shell input keyevent 82 &
+
+#script:
+#    - if [ "$TRAVIS_BRANCH" != "master"
+
+stages:
+#- quality
+- test
+- build
+- deploy
+
+jobs:
+  include:
+  - stage: deploy
+    script: "./push_master.sh"
+  - stage: test
+    script: "./gradlew test"
+  - stage: quality
+    script: "./gradlew pmd"
+  - script: "./gradlew lint"
+  - stage: build
+    script: "./gradlew assembleDebug"
