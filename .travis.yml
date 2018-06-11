@@ -33,18 +33,18 @@ before_script:
 
 stages:
 #- quality
-- test
-- build
+#- test
+#- build
 - deploy
 
 jobs:
   include:
   - stage: deploy
     script: "./push_master.sh"
-  - stage: test
-    script: "./gradlew test"
-  - stage: quality
-    script: "./gradlew pmd"
-  - script: "./gradlew lint"
-  - stage: build
-    script: "./gradlew assembleDebug"
+  #- stage: test
+  #  script: "./gradlew test"
+  #- stage: quality
+  #  script: "./gradlew pmd"
+  #- script: "./gradlew lint"
+  #- stage: build
+  #  script: "./gradlew assembleDebug"
